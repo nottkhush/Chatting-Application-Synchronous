@@ -26,5 +26,5 @@ export const getColor = (color) => {
 export const animationDefaultOptions = {
   loop: true,
   autoplay: true,
-  animationData: animationData
-}
+  animationData: animationData,
+};

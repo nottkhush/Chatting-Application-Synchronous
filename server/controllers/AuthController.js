@@ -95,6 +95,7 @@ export const getUserInfo = async (request, response, next) => {
     console.log({ error });
     return response.status(500).send("Internal server error");
   }
+  
 };
 
 export const updateProfile = async (request, response, next) => {

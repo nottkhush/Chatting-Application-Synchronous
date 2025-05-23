@@ -15,7 +15,7 @@ const authRoutes = Router();
 
 authRoutes.post("/signup", signup);
 authRoutes.post("/login", login);
-authRoutes.get("/user-info", getUserInfo, verifyToken);
+authRoutes.get("/user-info", verifyToken, getUserInfo);
 authRoutes.post("/update-profile",verifyToken, updateProfile);
 authRoutes.post(
   "/add-profile-image",

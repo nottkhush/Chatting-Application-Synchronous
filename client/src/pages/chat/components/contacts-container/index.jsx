@@ -3,14 +3,21 @@ import ProfileInfo from "./components/profile-info";
 import NewDM from "./components/new-dm";
 import { useEffect } from "react";
 import apiClient from "@/lib/api-client";
-import { GET_DM_CONTACTS_ROUTES, GET_USER_CHANNELS_ROUTE } from "../../../../utils/constants";
+import {
+  GET_DM_CONTACTS_ROUTES,
+  GET_USER_CHANNELS_ROUTE,
+} from "../../../../utils/constants";
 import { useAppStore } from "../../../../store";
 import ContactList from "../../../../components/contact-list";
 import CreateChannel from "./components/create-channel";
 
 const ContactsContainer = () => {
-
-  const {setDirectMessagesContacts, directMessagesContacts, channels, setChannels} = useAppStore();
+  const {
+    setDirectMessagesContacts,
+    directMessagesContacts,
+    channels,
+    setChannels,
+  } = useAppStore();
 
   useEffect(() => {
     const getContacts = async () => {
@@ -46,7 +53,7 @@ const ContactsContainer = () => {
           <NewDM />
         </div>
         <div className="max-h-[38vh] overflow-y-auto scrollbar-hidden ">
-          <ContactList contacts={directMessagesContacts}/>
+          <ContactList contacts={directMessagesContacts} />
         </div>
       </div>
       <div className="my-5">
@@ -55,7 +62,7 @@ const ContactsContainer = () => {
           <CreateChannel />
         </div>
         <div className="max-h-[38vh] overflow-y-auto scrollbar-hidden ">
-          <ContactList contacts={channels} isChannel={true}/>
+          <ContactList contacts={channels} isChannel={true} />
         </div>
       </div>
       <ProfileInfo />

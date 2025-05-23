@@ -34,7 +34,7 @@ const Profile = () => {
       setLastName(userInfo.lastName);
       setSelectedColor(userInfo.color);
     }
-    if(userInfo.image){
+    if (userInfo.image) {
       setImage(`${HOST}/${userInfo.image}`);
     }
   }, [userInfo]);
@@ -98,15 +98,17 @@ const Profile = () => {
   };
 
   const handleDeleteImage = async () => {
-    try{
-      const response = await apiClient.delete(REMOVE_PROFILE_IMAGE_ROUTE, {withCredentials: true});
-      if(response.status === 200){
+    try {
+      const response = await apiClient.delete(REMOVE_PROFILE_IMAGE_ROUTE, {
+        withCredentials: true,
+      });
+      if (response.status === 200) {
         setUserInfo({ ...userInfo, image: null });
         toast.success("Profile image removed successfully");
         setImage(null);
       }
-    } catch(error){
-      console.log({error})
+    } catch (error) {
+      console.log({ error });
     }
   };
 

@@ -49,7 +49,7 @@ const MessageContainer = () => {
     const getChannelMessages = async () => {
       try {
         const response = await apiClient.get(
-         `${GET_CHANNEL_MESSAGES}/${selectedChatData._id}`,
+          `${GET_CHANNEL_MESSAGES}/${selectedChatData._id}`,
           { withCredentials: true }
         );
         if (response.data.messages) {
@@ -58,12 +58,12 @@ const MessageContainer = () => {
       } catch (error) {
         console.log({ error });
       }
-    }
+    };
 
     if (selectedChatData._id) {
       if (selectedChatType === "contact") {
         getMessages();
-      } else if (selectedChatType === "channel"){
+      } else if (selectedChatType === "channel") {
         getChannelMessages();
       }
     }

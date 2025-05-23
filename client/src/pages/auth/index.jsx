@@ -11,9 +11,8 @@ import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../../store";
 
 const Auth = () => {
-
   const navigate = useNavigate();
-  const {setUserInfo} = useAppStore();
+  const { setUserInfo } = useAppStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -53,11 +52,11 @@ const Auth = () => {
         { email, password },
         { withCredentials: true }
       );
-      if(response.data.user.id){
+      if (response.data.user.id) {
         setUserInfo(response.data.user);
-        if(response.data.user.profileSetup){
+        if (response.data.user.profileSetup) {
           navigate("/chat");
-        }else{
+        } else {
           navigate("/profile");
         }
       }
@@ -71,7 +70,7 @@ const Auth = () => {
         { email, password },
         { withCredentials: true }
       );
-      if(response.status === 201){
+      if (response.status === 201) {
         setUserInfo(response.data.user);
         navigate("/profile");
       }

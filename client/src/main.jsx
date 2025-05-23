@@ -10,8 +10,7 @@ createRoot(document.getElementById("root")).render(
   <SocketProvider>
     <App />
     <Toaster closeButton />
-
   </SocketProvider>
-  
+
   // </StrictMode>
 );

@@ -44,17 +44,20 @@ const CreateChannel = () => {
   const createChannel = async () => {
     try {
       if (channelName.length > 0 && selectedContacts.length > 0) {
-        const response = await apiClient.post(CREATE_CHANNEL_ROUTE, {
-          name: channelName,
-          members: selectedContacts.map((contact) => contact.value),
-        }, { withCredentials: true });
+        const response = await apiClient.post(
+          CREATE_CHANNEL_ROUTE,
+          {
+            name: channelName,
+            members: selectedContacts.map((contact) => contact.value),
+          },
+          { withCredentials: true }
+        );
         if (response.status === 201) {
           setChannelName("");
           setSelectedContacts([]);
           addChannel(response.data.channel);
           setNewChannelModal(false);
         }
-
       }
     } catch (error) {
       console.log({ error });

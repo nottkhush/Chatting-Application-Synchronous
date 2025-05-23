@@ -40,17 +40,19 @@ function App() {
           setUserInfo(undefined);
         }
       } catch (error) {
+        console.error("Error fetching user data:", error);
         setUserInfo(undefined);
       } finally {
         setLoading(false);
       }
     };
+
     if (!userInfo) {
       getUserData();
     } else {
       setLoading(false);
     }
-  }, [userInfo, setUserInfo]);
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
